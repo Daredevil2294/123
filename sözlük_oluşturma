@@ -1,0 +1,12 @@
+z= { "CRİNGE": "Garip ya da utandırıcı bir şey","LOL": "Komik bir şeye verilen cevap","ROFL": "Bir şakaya karşılık cevap","SHEESH": "onaylamamak","CREEPY":  "korkunç","AGGRO": "agresifleşmek/sinirlenmek"}
+a=0
+while a<6:
+    a=a+1
+    x = input("Anlamadığınız bir sözcük giriniz:") 
+    y= x.upper()
+    if y in z.keys():
+        print(z[y])
+    else: 
+        print("Başka bir kelime giriniz, yazdığınız kelime sözlüğümüzde kayıtlı değildir.")
+
+print("Sözlüğümüzü kullanığınız için teşekkürler!")
