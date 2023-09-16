@@ -28,8 +28,22 @@ async def meme(ctx):
         picture = discord.File(f)
         await ctx.send(file=picture)
 
+meme_probabilities = {
+    'dosya\images\mem1.png': 0.2,  
+    'dosya\images\mem2.jpg': 0.5,  
+    'dosya\images\mem3.jpg': 0.8,
+    'dosya\images\mem4.jpg': 0.8
+    }
 @bot.command()
 async def memrandom(ctx):
+    meme_list = []
+    for meme, probability in meme_probabilities.items():
+        if random.random() < probability:
+            meme_list.append(meme)
+
+    if meme_list:
+        img_name = random.choice(meme_list)
+
     print(os.listdir('dosya\images'))
     img_name = random.choice(os.listdir('dosya\images'))
     with open(f'dosya\images/{img_name}', 'rb') as f:
