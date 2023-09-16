@@ -28,4 +28,12 @@ async def meme(ctx):
         picture = discord.File(f)
         await ctx.send(file=picture)
 
+@bot.command()
+async def memrandom(ctx):
+    print(os.listdir('dosya\images'))
+    img_name = random.choice(os.listdir('dosya\images'))
+    with open(f'dosya\images/{img_name}', 'rb') as f:
+            picture = discord.File(f)
+            await ctx.send(file=picture)
+
 bot.run("TOKEN")
