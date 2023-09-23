@@ -19,6 +19,8 @@ async def hello(ctx):
     await ctx.send('geri_dönüşüm = geri dömüşümü önemi ile ilgili bilgiler')
     await ctx.send('kirlilik = dikkatli olmazsak kirliliğin gelebileceği durum')
     await ctx.send('öneri = çevreyi koruma adına yapılabilecek öneriler')
+    await ctx.send('önerilerim = Kendi önerilerinizi yazın böylece sonrasında eklenerek önerilerimiz artabilir')
+    await ctx.send('yazılanlar = Başkalarının önerilerini görebilirsiniz')
     await ctx.send('süpriz ???')
      
 @bot.command()
@@ -58,5 +60,19 @@ async def İki(ctx):
 @bot.command()
 async def Üç(ctx):
         await ctx.send('Eveettt, süpriz testimiz sona erdi bu soruların çoğuna evet dediyseniz çevre adına teşekkürler!!')
+
+@bot.command()
+async def önerilerim(ctx, *, suggestion):
+
+    with open('__pycache__\dosya 2\çevrebotum\onerilerim.txt', 'a', encoding='utf-8') as f:
+        f.write(suggestion + '\n')
+    await ctx.send(f"Öneriniz kaydedildi: {suggestion}")
+
+
+@bot.command()
+async def yazılanlar(ctx):
+    with open('__pycache__\dosya 2\çevrebotum\onerilerim.txt', 'r', encoding='utf-8') as f:
+        text = f.read()
+    await ctx.send(text)
 
 bot.run('Token')
